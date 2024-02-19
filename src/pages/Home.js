@@ -7,16 +7,34 @@ import { downloads } from '../components/helpers'
 import Download from '../components/Download'
 import { why_us } from '../components/helpers'
 import Whyus from '../components/Whyus'
-
+import { Icon_svg } from '../components/helpers'
+import { testos } from '../components/helpers'
+import Testmony from '../components/Testmony'
 function Home() {
+  {
+    var slows = document.querySelectorAll('.slows')
+    window.addEventListener('scroll',function name(params) {
+      slows.forEach(slow=>{
+        var viewpoint= 0
+        var windowpoint = window.innerHeight
+        var start = slow.getBoundingClientRect().top
+        if (viewpoint < windowpoint-start) {
+          slow.classList.add('show')
+        }
+        else{
+          slow.classList.remove('show')
+        }
+      })
+    })
+  }
   return (
     <div className='body' id='home'>
-      <div className="video">
+      <div className="video slows">
         <video autoPlay muted loop>
           <source src={bgimg} />
         </video>
       </div>
-      <div className="intro">
+      <div className="intro slows">
         <div className="intro-words">
               <div className='offer'>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="144" height="144">
@@ -57,7 +75,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="features" id='features'>
+      <div className="features slows" id='features'>
         <div className="features-words">
           <h1>Our Application Features.</h1>
           <p>With Vault, you can earn points by completing simple steps and using those points to gain subscription-free access to premium articles. Your feed is updated daily with fresh news stories.</p>
@@ -68,7 +86,7 @@ function Home() {
           })}
         </div>
       </div>
-      <div className="app">
+      <div className="app slows"  id='apps'>
         <div className="img-cont">
           <img src={require('../img/App-Landing-Apps-Image.webp')} alt=""  className='app-landing-1'/>
           <img src={require('../img/App-Landing-Apps-Card.webp')} alt="" className='app-landing-2'/>
@@ -94,7 +112,7 @@ function Home() {
           </div> 
         </div>
       </div>
-      <div className="why-us" >
+      <div className="why-us slows" id='why-us'>
         <div className="why-choose">
           <h3>over <span>150.000+ clients</span></h3>
           <h1>Why you choose Vault apps?</h1>
@@ -106,11 +124,23 @@ function Home() {
           }) }
         </div>
       </div>
-      <div className="key-features">
-        <h2>features</h2>
-        <h1>Features Check the key features of our apps</h1>
-        <img src={require('../img/App-Landing-Features-BG.webp')} alt="" />
+      <div className="testimonial slows" id='testo'>
+        <div className="intro-testo">
+         <div className='wid'>
+            <h3>testimonial</h3>
+            <h1>You're gonna love us forever.</h1>
+         </div>
+        </div>
+        <img src={require('../img/App-Landing-Testimonials-BG.webp')} alt="" className='testo-bg'/>
+        <div className="testo-card-container">
+          {
+            testos.map((testo,key)=>{
+              return <Testmony key={key} img={testo.img} h2={testo.h2} p={testo.p} svg={testo.svg} testim={testo.testim}/>
+            })
+          }
+        </div>
       </div>
+      <div></div>
     </div>
   )
 }

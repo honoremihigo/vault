@@ -4,13 +4,13 @@ import Home from '../pages/Home';
 
 function Navbar() { 
   return (
-    <div className='navbar'>
+    <div className='navbar slows'>
         <img src={require('../img/Vault-Logo.webp')} alt="" />
       <div className="nav-links">
         <a href="#home">home</a>
         <a href="#features">features</a>
-        <a href="">apps</a>
-        <a href="">why us</a>
+        <a href="#apps">apps</a>
+        <a href="#why-us">why us</a>
         <a href="">pricing</a>
         <a href="">feedback</a>
       </div>
